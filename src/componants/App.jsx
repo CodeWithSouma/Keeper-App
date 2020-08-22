@@ -14,10 +14,17 @@ function App() {
     }]);
 
     function addNotes(note) {
-        console.log(note);
         setNotes((previousNotes)=>{
             return [...previousNotes,note];
         })
+    }
+
+    function deleteItem(id) {
+        setNotes((previousNotes)=>{
+            return previousNotes.filter((note,index)=>{
+                return index !== id;
+            });
+        });
     }
 
     return (
@@ -26,11 +33,14 @@ function App() {
             <InputArea
                 onAdd = {addNotes}
             />
-            {notes.map((note) => (
+            {notes.map((note,index) => (
                 <Note
+                    key = {index}
+                    id = {index}
                     key = {note.key}
                     title = {note.title}
                     content = {note.content}
+                    onItemDelete = {deleteItem}
                 />
             ))}
             <Footer/>
