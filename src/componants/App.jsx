@@ -2,7 +2,6 @@ import React,{useState} from "react";
 import Header from "./Header";
 import Note from "./Note";
 import Footer from "./Footer";
-// import notes from "../notes"
 import InputArea from "./InputArea";
 
 
